@@ -577,14 +577,6 @@
   </style>
 </head>
 <body>
-  <!-- Audio element for the song -->
-  <audio id="birthdaySong" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b6b3b6e2.mp3"></audio>
-
-  <!-- Music Player -->
-  <div class="music-player">
-    <button id="playPauseBtn" class="music-control" title="Play/Pause">▶</button>
-    <span class="song-info">Lagu: Calm and Peaceful (Pixabay Music)</span>
-  </div>
   
   <div class="floating-elements">
     <div class="floating-element" style="top:10%; left:5%; font-size:2rem;">🎈</div>
@@ -705,38 +697,6 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-  // Music player functionality
-  const audio = document.getElementById('birthdaySong');
-  const playPauseBtn = document.getElementById('playPauseBtn');
-  let isPlaying = false;
-
-  if (audio && playPauseBtn) {
-    // Play/pause button control
-    playPauseBtn.addEventListener('click', function() {
-      if (isPlaying) {
-        audio.pause();
-        playPauseBtn.textContent = '▶';
-      } else {
-        audio.play().then(() => {
-          playPauseBtn.textContent = '❚❚';
-        }).catch(error => {
-          alert('Browser memblokir pemutaran otomatis. Silakan klik tombol play lagi.');
-        });
-      }
-      isPlaying = !isPlaying;
-    });
-
-    // Update tombol jika audio dipause/play dari luar
-    audio.addEventListener('play', function() {
-      playPauseBtn.textContent = '❚❚';
-      isPlaying = true;
-    });
-    audio.addEventListener('pause', function() {
-      playPauseBtn.textContent = '▶';
-      isPlaying = false;
-    });
-  }
-
   // Floating elements
   document.querySelectorAll('.floating-element').forEach((el) => {
     const duration = 10 + Math.random() * 20;
